@@ -13,3 +13,19 @@ const game = new Game();
 game.start();
 
 const {Game, GameSavingData, readGameSaving: loadGame, writeGameSaving: saveGame} = require('./game.js');
+
+
+export default function getHealthStatus(character) {
+    const health = character.health;
+  
+    if (health > 50) {
+      return 'healthy';
+    } else if (health > 15) {
+      return 'wounded';
+    } else {
+      return 'critical';
+    }
+  }
+
+  export default const sortedCharacters = characters.slice().sort((a, b) => b.health - a.health);
+  export default const healthLevels = sortedCharacters.map(character => character.health);
